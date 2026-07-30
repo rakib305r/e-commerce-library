@@ -72,7 +72,7 @@ price:54.99,
 rating:4.9,
 availability:"In Stock",
 quantity:9,
-image:"https://www.daraz.com.bd/products/effective-java-third-edition-i327024688.html"
+image:"https://covers.openlibary.org/b/id/8408961-M.jpg"
 },
 
 {
@@ -84,7 +84,7 @@ price:42.99,
 rating:4.4,
 availability:"In Stock",
 quantity:11,
-image:"https://covers.openlibrary.org/b/id/8375881-M.jpg"
+image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMEHp6YCLviizWMHpztzEggrp4YgzyPa-LseCj8FOjxFrHuVJZG-XF8Mo&s=10"
 },
 
 {

@@ -35,19 +35,19 @@ const toggleSignupPassword = document.getElementById("toggleSignupPassword");
 const signupPassword = document.getElementById("signupPassword");
 
 
-if(toggleSignupPassword){
+if (toggleSignupPassword) {
 
-    toggleSignupPassword.addEventListener("click",()=>{
+    toggleSignupPassword.addEventListener("click", () => {
 
-        if(signupPassword.type==="password"){
+        if (signupPassword.type === "password") {
 
-            signupPassword.type="text";
-            toggleSignupPassword.textContent="🙈";
+            signupPassword.type = "text";
+            toggleSignupPassword.textContent = "🙈";
 
-        }else{
+        } else {
 
-            signupPassword.type="password";
-            toggleSignupPassword.textContent="👁";
+            signupPassword.type = "password";
+            toggleSignupPassword.textContent = "👁";
 
         }
 
@@ -62,31 +62,31 @@ if(toggleSignupPassword){
 const signupForm = document.getElementById("signupForm");
 
 
-if(signupForm){
+if (signupForm) {
 
-    signupForm.addEventListener("submit",(e)=>{
+    signupForm.addEventListener("submit", (e) => {
 
         e.preventDefault();
 
 
         const name =
-        document.getElementById("signupName").value.trim();
+            document.getElementById("signupName").value.trim();
 
 
         const email =
-        document.getElementById("signupEmail").value.trim();
+            document.getElementById("signupEmail").value.trim();
 
 
         const password =
-        document.getElementById("signupPassword").value;
+            document.getElementById("signupPassword").value;
 
 
         const confirmPassword =
-        document.getElementById("confirmPassword").value;
+            document.getElementById("confirmPassword").value;
 
 
 
-        if(password !== confirmPassword){
+        if (password !== confirmPassword) {
 
             alert("Password does not match");
             return;
@@ -96,16 +96,16 @@ if(signupForm){
 
 
         const allUsers =
-        JSON.parse(localStorage.getItem("users")) || [];
+            JSON.parse(localStorage.getItem("users")) || [];
 
 
 
         const exist =
-        allUsers.find(user=>user.email===email);
+            allUsers.find(user => user.email === email);
 
 
 
-        if(exist){
+        if (exist) {
 
             alert("Email already registered");
             return;
@@ -133,7 +133,7 @@ if(signupForm){
         alert("Account created successfully");
 
 
-        window.location.href="index.html";
+        window.location.href = "index.html";
 
 
     });
@@ -145,39 +145,39 @@ if(signupForm){
 // Login System
 
 const loginForm =
-document.getElementById("loginForm");
+    document.getElementById("loginForm");
 
 
-if(loginForm){
+if (loginForm) {
 
-    loginForm.addEventListener("submit",(e)=>{
+    loginForm.addEventListener("submit", (e) => {
 
         e.preventDefault();
 
 
 
         const email =
-        document.getElementById("loginEmail").value.trim();
+            document.getElementById("loginEmail").value.trim();
 
 
         const password =
-        document.getElementById("loginPassword").value;
+            document.getElementById("loginPassword").value;
 
 
 
         const allUsers =
-        JSON.parse(localStorage.getItem("users")) || [];
+            JSON.parse(localStorage.getItem("users")) || [];
 
 
 
         const user =
-        allUsers.find(
-            u=>u.email===email && u.password===password
-        );
+            allUsers.find(
+                u => u.email === email && u.password === password
+            );
 
 
 
-        if(user){
+        if (user) {
 
 
             localStorage.setItem(
@@ -186,10 +186,10 @@ if(loginForm){
             );
 
 
-            window.location.href="dashboard.html";
+            window.location.href = "dashboard.html";
 
 
-        }else{
+        } else {
 
 
             alert("Invalid email or password");
@@ -207,25 +207,25 @@ if(loginForm){
 // Dashboard User
 
 const username =
-document.getElementById("username");
+    document.getElementById("username");
 
 
-if(username){
+if (username) {
 
 
     const currentUser =
-    JSON.parse(
-        localStorage.getItem("currentUser")
-    );
+        JSON.parse(
+            localStorage.getItem("currentUser")
+        );
 
 
-    if(!currentUser){
+    if (!currentUser) {
 
-        window.location.href="index.html";
+        window.location.href = "index.html";
 
-    }else{
+    } else {
 
-        username.textContent=currentUser.name;
+        username.textContent = currentUser.name;
 
     }
 
@@ -236,16 +236,16 @@ if(username){
 // Logout
 
 const logoutBtn =
-document.getElementById("logoutBtn");
+    document.getElementById("logoutBtn");
 
 
-if(logoutBtn){
+if (logoutBtn) {
 
-    logoutBtn.addEventListener("click",()=>{
+    logoutBtn.addEventListener("click", () => {
 
         localStorage.removeItem("currentUser");
 
-        window.location.href="index.html";
+        window.location.href = "index.html";
 
     });
 
@@ -255,81 +255,81 @@ if(logoutBtn){
 
 // Book Data
 
-const defaultBooks=[
+const defaultBooks = [
 
-{
-title:"Python Programming",
-author:"John Smith",
-category:"Programming"
-},
+    {
+        title: "Python Programming",
+        author: "John Smith",
+        category: "Programming"
+    },
 
-{
-title:"Java Programming",
-author:"James Gosling",
-category:"Programming"
-},
+    {
+        title: "Java Programming",
+        author: "James Gosling",
+        category: "Programming"
+    },
 
-{
-title:"Machine Learning Basics",
-author:"Andrew Ng",
-category:"Programming"
-},
+    {
+        title: "Machine Learning Basics",
+        author: "Andrew Ng",
+        category: "Programming"
+    },
 
-{
-title:"Artificial Intelligence",
-author:"Russell",
-category:"Science"
-},
+    {
+        title: "Artificial Intelligence",
+        author: "Russell",
+        category: "Science"
+    },
 
-{
-title:"Database System",
-author:"Silberschatz",
-category:"Programming"
-},
+    {
+        title: "Database System",
+        author: "Silberschatz",
+        category: "Programming"
+    },
 
-{
-title:"Clean Code",
-author:"Robert Martin",
-category:"Programming"
-},
+    {
+        title: "Clean Code",
+        author: "Robert Martin",
+        category: "Programming"
+    },
 
-{
-title:"Computer Network",
-author:"Tanenbaum",
-category:"Programming"
-},
+    {
+        title: "Computer Network",
+        author: "Tanenbaum",
+        category: "Programming"
+    },
 
-{
-title:"Operating System",
-author:"William Stallings",
-category:"Programming"
-},
+    {
+        title: "Operating System",
+        author: "William Stallings",
+        category: "Programming"
+    },
 
-{
-title:"Atomic Habits",
-author:"James Clear",
-category:"Novel"
-},
+    {
+        title: "Atomic Habits",
+        author: "James Clear",
+        category: "Novel"
+    },
 
-{
-title:"The Alchemist",
-author:"Paulo Coelho",
-category:"Novel"
-}
+    {
+        title: "The Alchemist",
+        author: "Paulo Coelho",
+        category: "Novel"
+    }
 
 ];
 
 
 
 let books =
-JSON.parse(localStorage.getItem("books"))
-|| defaultBooks;
+    JSON.parse(localStorage.getItem("books"))
+    || defaultBooks;
 
 
 
 localStorage.setItem(
-"books",
-JSON.stringify(books)
+    "books",
+    JSON.stringify(books)
 );
 
 
@@ -337,25 +337,25 @@ JSON.stringify(books)
 // Display Books
 
 const bookContainer =
-document.getElementById("bookContainer");
+    document.getElementById("bookContainer");
 
 
-function displayBooks(data){
+function displayBooks(data) {
 
 
-if(!bookContainer)
-return;
-
-
-
-bookContainer.innerHTML="";
+    if (!bookContainer)
+        return;
 
 
 
-data.forEach((book,index)=>{
+    bookContainer.innerHTML = "";
 
 
-bookContainer.innerHTML += `
+
+    data.forEach((book, index) => {
+
+
+        bookContainer.innerHTML += `
 
 <div class="book-card">
 
@@ -380,7 +380,7 @@ Delete
 
 `;
 
-});
+    });
 
 
 }
@@ -394,53 +394,53 @@ displayBooks(books);
 // Add Book
 
 const addBookBtn =
-document.getElementById("addBookBtn");
+    document.getElementById("addBookBtn");
 
 
-if(addBookBtn){
+if (addBookBtn) {
 
 
-addBookBtn.addEventListener("click",()=>{
+    addBookBtn.addEventListener("click", () => {
 
 
-const title =
-document.getElementById("bookTitle").value;
+        const title =
+            document.getElementById("bookTitle").value;
 
 
-const author =
-document.getElementById("bookAuthor").value;
+        const author =
+            document.getElementById("bookAuthor").value;
 
 
-const category =
-document.getElementById("bookCategory").value;
+        const category =
+            document.getElementById("bookCategory").value;
 
 
 
-if(title && author){
+        if (title && author) {
 
 
-books.push({
+            books.push({
 
-title,
-author,
-category
+                title,
+                author,
+                category
 
-});
-
-
-localStorage.setItem(
-"books",
-JSON.stringify(books)
-);
+            });
 
 
-displayBooks(books);
+            localStorage.setItem(
+                "books",
+                JSON.stringify(books)
+            );
 
 
-}
+            displayBooks(books);
 
 
-});
+        }
+
+
+    });
 
 
 }
@@ -449,21 +449,21 @@ displayBooks(books);
 
 // Delete Book
 
-function deleteBook(index){
+function deleteBook(index) {
 
 
-books.splice(index,1);
-
-
-
-localStorage.setItem(
-"books",
-JSON.stringify(books)
-);
+    books.splice(index, 1);
 
 
 
-displayBooks(books);
+    localStorage.setItem(
+        "books",
+        JSON.stringify(books)
+    );
+
+
+
+    displayBooks(books);
 
 
 }
@@ -472,34 +472,34 @@ displayBooks(books);
 
 // Edit Book
 
-function editBook(index){
+function editBook(index) {
 
 
-const title =
-prompt(
-"New book title",
-books[index].title
-);
-
-
-
-if(title){
-
-
-books[index].title=title;
-
-
-localStorage.setItem(
-"books",
-JSON.stringify(books)
-);
+    const title =
+        prompt(
+            "New book title",
+            books[index].title
+        );
 
 
 
-displayBooks(books);
+    if (title) {
 
 
-}
+        books[index].title = title;
+
+
+        localStorage.setItem(
+            "books",
+            JSON.stringify(books)
+        );
+
+
+
+        displayBooks(books);
+
+
+    }
 
 
 }
@@ -509,34 +509,34 @@ displayBooks(books);
 // Search
 
 const searchBook =
-document.getElementById("searchBook");
+    document.getElementById("searchBook");
 
 
-if(searchBook){
+if (searchBook) {
 
 
-searchBook.addEventListener("input",()=>{
+    searchBook.addEventListener("input", () => {
 
 
-const value =
-searchBook.value.toLowerCase();
-
-
-
-const result =
-books.filter(book=>
-
-book.title.toLowerCase()
-.includes(value)
-
-);
+        const value =
+            searchBook.value.toLowerCase();
 
 
 
-displayBooks(result);
+        const result =
+            books.filter(book =>
+
+                book.title.toLowerCase()
+                    .includes(value)
+
+            );
 
 
-});
+
+        displayBooks(result);
+
+
+    });
 
 
 }
@@ -546,130 +546,130 @@ displayBooks(result);
 // Category Filter
 
 const categoryFilter =
-document.getElementById("categoryFilter");
+    document.getElementById("categoryFilter");
 
 
-if(categoryFilter){
+if (categoryFilter) {
 
 
-categoryFilter.addEventListener("change",()=>{
+    categoryFilter.addEventListener("change", () => {
 
 
-const category =
-categoryFilter.value;
+        const category =
+            categoryFilter.value;
 
 
 
-if(category==="all"){
+        if (category === "all") {
 
-displayBooks(books);
-
-
-}else{
+            displayBooks(books);
 
 
-const result =
-books.filter(book=>
-
-book.category===category
-
-);
+        } else {
 
 
-displayBooks(result);
+            const result =
+                books.filter(book =>
+
+                    book.category === category
+
+                );
 
 
-}
+            displayBooks(result);
 
 
-});
+        }
+
+
+    });
 
 
 }
 const totalBooks =
-document.getElementById("totalBooks");
+    document.getElementById("totalBooks");
 
 
 const availableBooks =
-document.getElementById("availableBooks");
+    document.getElementById("availableBooks");
 
 
 const borrowedBooks =
-document.getElementById("borrowedBooks");
+    document.getElementById("borrowedBooks");
 
 
 
-if(totalBooks){
+if (totalBooks) {
 
 
-const allBooks =
-JSON.parse(
-localStorage.getItem("books")
-) || [];
-
-
-
-const borrowed =
-JSON.parse(
-localStorage.getItem("borrowedBooks")
-) || [];
+    const allBooks =
+        JSON.parse(
+            localStorage.getItem("books")
+        ) || [];
 
 
 
-totalBooks.textContent =
-allBooks.length;
+    const borrowed =
+        JSON.parse(
+            localStorage.getItem("borrowedBooks")
+        ) || [];
 
 
 
-availableBooks.textContent =
-allBooks.length - borrowed.length;
+    totalBooks.textContent =
+        allBooks.length;
 
 
 
-borrowedBooks.textContent =
-borrowed.length;
+    availableBooks.textContent =
+        allBooks.length - borrowed.length;
+
+
+
+    borrowedBooks.textContent =
+        borrowed.length;
 
 
 }
 const borrowContainer =
-document.getElementById("borrowContainer");
+    document.getElementById("borrowContainer");
 
 
 const borrowHistory =
-document.getElementById("borrowHistory");
+    document.getElementById("borrowHistory");
 
 
 
 let borrowedBooks =
-JSON.parse(
-localStorage.getItem("borrowedBooks")
-) || [];
+    JSON.parse(
+        localStorage.getItem("borrowedBooks")
+    ) || [];
 
 
 
-function displayBorrowBooks(){
+function displayBorrowBooks() {
 
 
-if(!borrowContainer)
-return;
-
-
-
-const books =
-JSON.parse(
-localStorage.getItem("books")
-) || [];
+    if (!borrowContainer)
+        return;
 
 
 
-borrowContainer.innerHTML="";
+    const books =
+        JSON.parse(
+            localStorage.getItem("books")
+        ) || [];
 
 
 
-books.forEach((book,index)=>{
+    borrowContainer.innerHTML = "";
 
 
-borrowContainer.innerHTML += `
+
+    books.forEach((book, index) => {
+
+
+        borrowContainer.innerHTML += `
 
 <div class="book-card">
 
@@ -694,7 +694,7 @@ Borrow
 `;
 
 
-});
+    });
 
 
 }
@@ -707,69 +707,44 @@ displayBorrowBooks();
 
 
 
-function borrowBook(index){
+function borrowBook(index) {
 
 
-const books =
-JSON.parse(
-localStorage.getItem("books")
-);
-
-
-
-const book = books[index];
+    const books =
+        JSON.parse(
+            localStorage.getItem("books")
+        );
 
 
 
-borrowedBooks.push({
-
-title: book.title,
-
-date: new Date()
-.toLocaleDateString(),
-
-status:"Borrowed"
-
-});
+    const book = books[index];
 
 
 
-localStorage.setItem(
-"borrowedBooks",
-JSON.stringify(borrowedBooks)
-);
+    borrowedBooks.push({
+
+        title: book.title,
+
+        date: new Date()
+            .toLocaleDateString(),
+
+        status: "Borrowed"
+
+    });
 
 
 
-alert("Book borrowed successfully");
-
-
-displayHistory();
-
-
-}
+    localStorage.setItem(
+        "borrowedBooks",
+        JSON.stringify(borrowedBooks)
+    );
 
 
 
+    alert("Book borrowed successfully");
 
 
-function returnBook(index){
-
-
-borrowedBooks[index].status="Returned";
-
-
-localStorage.setItem(
-
-"borrowedBooks",
-
-JSON.stringify(borrowedBooks)
-
-);
-
-
-
-displayHistory();
+    displayHistory();
 
 
 }
@@ -778,22 +753,47 @@ displayHistory();
 
 
 
-function displayHistory(){
+function returnBook(index) {
 
 
-if(!borrowHistory)
-return;
+    borrowedBooks[index].status = "Returned";
+
+
+    localStorage.setItem(
+
+        "borrowedBooks",
+
+        JSON.stringify(borrowedBooks)
+
+    );
 
 
 
-borrowHistory.innerHTML="";
+    displayHistory();
+
+
+}
 
 
 
-borrowedBooks.forEach((book,index)=>{
 
 
-borrowHistory.innerHTML += `
+function displayHistory() {
+
+
+    if (!borrowHistory)
+        return;
+
+
+
+    borrowHistory.innerHTML = "";
+
+
+
+    borrowedBooks.forEach((book, index) => {
+
+
+        borrowHistory.innerHTML += `
 
 <div class="book-card">
 
@@ -814,20 +814,19 @@ Status: ${book.status}
 
 
 
-${
-book.status==="Borrowed"
+${book.status === "Borrowed"
 
-?
+                ?
 
-`<button onclick="returnBook(${index})">
+                `<button onclick="returnBook(${index})">
 Return
 </button>`
 
-:
+                :
 
-""
+                ""
 
-}
+            }
 
 
 </div>
@@ -836,7 +835,7 @@ Return
 `;
 
 
-});
+    });
 
 
 }
@@ -845,32 +844,32 @@ Return
 
 displayHistory();
 const memberContainer =
-document.getElementById("memberContainer");
+    document.getElementById("memberContainer");
 
 
 let members =
-JSON.parse(
-localStorage.getItem("members")
-) || [];
+    JSON.parse(
+        localStorage.getItem("members")
+    ) || [];
 
 
 
-function displayMembers(data){
+function displayMembers(data) {
 
 
-if(!memberContainer)
-return;
-
-
-
-memberContainer.innerHTML="";
+    if (!memberContainer)
+        return;
 
 
 
-data.forEach((member,index)=>{
+    memberContainer.innerHTML = "";
 
 
-memberContainer.innerHTML += `
+
+    data.forEach((member, index) => {
+
+
+        memberContainer.innerHTML += `
 
 <div class="book-card">
 
@@ -895,7 +894,7 @@ Delete
 
 
 
-});
+    });
 
 
 }
@@ -909,73 +908,73 @@ displayMembers(members);
 
 
 const addMemberBtn =
-document.getElementById("addMemberBtn");
+    document.getElementById("addMemberBtn");
 
 
 
-if(addMemberBtn){
+if (addMemberBtn) {
 
 
-addMemberBtn.addEventListener("click",()=>{
+    addMemberBtn.addEventListener("click", () => {
 
 
-const name =
-document.getElementById("memberName").value;
+        const name =
+            document.getElementById("memberName").value;
 
 
-const email =
-document.getElementById("memberEmail").value;
-
-
-
-if(name && email){
-
-
-members.push({
-
-name,
-email
-
-});
-
-
-localStorage.setItem(
-"members",
-JSON.stringify(members)
-);
+        const email =
+            document.getElementById("memberEmail").value;
 
 
 
-displayMembers(members);
+        if (name && email) {
+
+
+            members.push({
+
+                name,
+                email
+
+            });
+
+
+            localStorage.setItem(
+                "members",
+                JSON.stringify(members)
+            );
+
+
+
+            displayMembers(members);
+
+
+        }
+
+
+    });
 
 
 }
 
 
-});
-
-
-}
 
 
 
+function deleteMember(index) {
 
 
-function deleteMember(index){
-
-
-members.splice(index,1);
-
-
-
-localStorage.setItem(
-"members",
-JSON.stringify(members)
-);
+    members.splice(index, 1);
 
 
 
-displayMembers(members);
+    localStorage.setItem(
+        "members",
+        JSON.stringify(members)
+    );
+
+
+
+    displayMembers(members);
 
 
 }
@@ -985,74 +984,74 @@ displayMembers(members);
 
 
 const searchMember =
-document.getElementById("searchMember");
+    document.getElementById("searchMember");
 
 
 
-if(searchMember){
+if (searchMember) {
 
 
-searchMember.addEventListener("input",()=>{
+    searchMember.addEventListener("input", () => {
 
 
-const value =
-searchMember.value.toLowerCase();
-
-
-
-const result =
-members.filter(member=>
-
-member.name
-.toLowerCase()
-.includes(value)
-
-);
+        const value =
+            searchMember.value.toLowerCase();
 
 
 
-displayMembers(result);
+        const result =
+            members.filter(member =>
+
+                member.name
+                    .toLowerCase()
+                    .includes(value)
+
+            );
 
 
 
-});
+        displayMembers(result);
+
+
+
+    });
 
 
 }
 const totalBooks =
-document.getElementById("totalBooks");
+    document.getElementById("totalBooks");
 
 
 const availableBooks =
-document.getElementById("availableBooks");
+    document.getElementById("availableBooks");
 
 
 
-if(totalBooks){
+if (totalBooks) {
 
 
-let books =
-JSON.parse(
-localStorage.getItem("books")
-) || [];
-
-
-
-let total = books.reduce(
-(sum,book)=>
-sum + Number(book.quantity),
-0
-);
+    let books =
+        JSON.parse(
+            localStorage.getItem("books")
+        ) || [];
 
 
 
-totalBooks.innerText =
-total;
+    let total = books.reduce(
+        (sum, book) =>
+            sum + Number(book.quantity),
+        0
+    );
 
 
 
-availableBooks.innerText =
-total;
+    totalBooks.innerText =
+        total;
+
+
+
+    availableBooks.innerText =
+        total;
 
 
 
@@ -1061,36 +1060,36 @@ total;
 
 
 const themeBtn =
-document.getElementById("themeBtn");
+    document.getElementById("themeBtn");
 
 
 
-if(localStorage.getItem("darkMode")=="true"){
+if (localStorage.getItem("darkMode") == "true") {
 
-document.body.classList.add("dark");
+    document.body.classList.add("dark");
 
 }
 
 
 
-if(themeBtn){
+if (themeBtn) {
 
-themeBtn.onclick=function(){
-
-
-document.body.classList.toggle("dark");
+    themeBtn.onclick = function () {
 
 
-localStorage.setItem(
-
-"darkMode",
-
-document.body.classList.contains("dark")
-
-);
+        document.body.classList.toggle("dark");
 
 
-};
+        localStorage.setItem(
+
+            "darkMode",
+
+            document.body.classList.contains("dark")
+
+        );
+
+
+    };
 
 
 }
