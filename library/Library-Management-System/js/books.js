@@ -72,7 +72,7 @@ price:54.99,
 rating:4.9,
 availability:"In Stock",
 quantity:9,
-image:"https://covers.openlibary.org/b/id/8408961-M.jpg"
+image:"https://covers.openlibrary.org/b/id/8408961-M.jpg"
 },
 
 {
