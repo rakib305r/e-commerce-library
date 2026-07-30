@@ -1,207 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>BookStore - Your Online Library</title>
-
-<link rel="stylesheet" href="css/style.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookStore - Your Online Library</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
-
 <body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                📚 CSTian BOOKSTORE
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="books.html" class="nav-link">Books</a>
+                <a href="cart.html" class="nav-link">Cart <span id="cartCount" class="cart-badge">0</span></a>
+                <button id="themeToggle" class="theme-toggle" title="Toggle Dark Theme">
+                    🌙
+                </button>
 
+                <div id="userNav" class="user-nav">
+                    <a href="dashboard.html" class="nav-link">Dashboard</a>
+                    <button id="logoutBtn" class="nav-btn">Logout</button>
+                </div>
 
-<nav class="navbar">
+                <div id="authNav" class="auth-nav">
+                    <a href="login.html" class="nav-link">Login</a>
+                    <a href="signup.html" class="nav-link">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-<div class="nav-container">
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Welcome to BookStore</h1>
+            <p>Discover your next favorite book from our extensive collection</p>
+            <a href="books.html" class="hero-btn">Browse Books</a>
+        </div>
+    </header>
 
-<div class="nav-logo">
-📚 RAKIB BOOKSTORE
-</div>
+    <section class="featured-section">
+        <div class="section-header">
+            <h2>Featured Books</h2>
+            <a href="books.html" class="view-all">View All →</a>
+        </div>
+        <div class="book-container" id="featuredBooks">
+        </div>
+    </section>
 
+    <section class="categories-section">
+        <div class="section-header">
+            <h2>Browse by Category</h2>
+        </div>
+        <div class="category-grid">
+            <div class="category-card" onclick="filterByCategory('Programming')">
+                <div class="category-icon">💻</div>
+                <h3>Programming</h3>
+                <p>120+ Books</p>
+            </div>
 
-<div class="nav-links">
+            <div class="category-card" onclick="filterByCategory('Science')">
+                <div class="category-icon">🔬</div>
+                <h3>Science</h3>
+                <p>45+ Books</p>
+            </div>
+            <div class="category-card" onclick="filterByCategory('Novel')">
+                <div class="category-icon">📖</div>
+                <h3>Novels</h3>
+                <p>80+ Books</p>
+            </div>
+        </div>
+    </section>
 
-<a href="index.html" class="nav-link active">Home</a>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>CSTian BOOKSTORE</h3>
+                <p>Your one-stop destination for quality books</p>
+            </div>
 
-<a href="books.html" class="nav-link">Books</a>
 
-<a href="cart.html" class="nav-link">Cart <span id="cartCount" class="cart-badge">0</span></a>
+            <div class="footer-section">
 
-<button id="themeToggle" class="theme-toggle" title="Toggle Dark Theme">
-🌙
-</button>
+                <h3>Quick Links</h3>
 
-<div id="userNav" class="user-nav">
-<a href="dashboard.html" class="nav-link">Dashboard</a>
-<button id="logoutBtn" class="nav-btn">Logout</button>
-</div>
+                <a href="index.html">Home</a>
 
-<div id="authNav" class="auth-nav">
-<a href="login.html" class="nav-link">Login</a>
-<a href="signup.html" class="nav-link">Sign Up</a>
-</div>
+                <a href="books.html">Books</a>
 
-</div>
+                <a href="cart.html">Cart</a>
 
+            </div>
 
-</div>
 
+            <div class="footer-section">
 
-</nav>
+                <h3>Contact</h3>
 
+                <p>support@bookstore.com</p>
 
-<header class="hero">
+                <p>+1 234 567 890</p>
 
-<div class="hero-content">
+            </div>
 
-<h1>Welcome to BookStore</h1>
 
-<p>Discover your next favorite book from our extensive collection</p>
+        </div>
 
-<a href="books.html" class="hero-btn">Browse Books</a>
 
-</div>
+        <div class="footer-bottom">
 
+            <p>&copy; 2024 RAKIB BOOKSTORE. All rights reserved.</p>
 
-</header>
+            <p>Created with ❤️ by Rakib | Since 2007</p>
 
+        </div>
 
-<section class="featured-section">
 
-<div class="section-header">
+    </footer>
 
-<h2>Featured Books</h2>
 
-<a href="books.html" class="view-all">View All →</a>
 
-</div>
+    <script src="js/books.js"></script>
 
+    <script src="js/cart.js"></script>
 
-<div class="book-container" id="featuredBooks">
+    <script src="js/theme.js"></script>
 
-
-</div>
-
-
-</section>
-
-
-<section class="categories-section">
-
-<div class="section-header">
-
-<h2>Browse by Category</h2>
-
-</div>
-
-
-<div class="category-grid">
-
-<div class="category-card" onclick="filterByCategory('Programming')">
-
-<div class="category-icon">💻</div>
-
-<h3>Programming</h3>
-
-<p>120+ Books</p>
-
-</div>
-
-
-<div class="category-card" onclick="filterByCategory('Science')">
-
-<div class="category-icon">🔬</div>
-
-<h3>Science</h3>
-
-<p>45+ Books</p>
-
-</div>
-
-
-<div class="category-card" onclick="filterByCategory('Novel')">
-
-<div class="category-icon">📖</div>
-
-<h3>Novels</h3>
-
-<p>80+ Books</p>
-
-</div>
-
-
-</div>
-
-
-</section>
-
-
-<footer class="footer">
-
-<div class="footer-content">
-
-<div class="footer-section">
-
-<h3>RAKIB BOOKSTORE</h3>
-
-<p>Your one-stop destination for quality books</p>
-
-</div>
-
-
-<div class="footer-section">
-
-<h3>Quick Links</h3>
-
-<a href="index.html">Home</a>
-
-<a href="books.html">Books</a>
-
-<a href="cart.html">Cart</a>
-
-</div>
-
-
-<div class="footer-section">
-
-<h3>Contact</h3>
-
-<p>support@bookstore.com</p>
-
-<p>+1 234 567 890</p>
-
-</div>
-
-
-</div>
-
-
-<div class="footer-bottom">
-
-<p>&copy; 2024 RAKIB BOOKSTORE. All rights reserved.</p>
-
-<p>Created with ❤️ by Rakib | Since 2007</p>
-
-</div>
-
-
-</footer>
-
-
-
-<script src="js/books.js"></script>
-
-<script src="js/cart.js"></script>
-
-<script src="js/theme.js"></script>
-
-<script src="js/home.js"></script>
+    <script src="js/home.js"></script>
 
 
 </body>

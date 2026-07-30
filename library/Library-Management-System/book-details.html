@@ -1,246 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Book Details - BookStore</title>
-
-<link rel="stylesheet" href="css/style.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Details - BookStore</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 
 <body>
+    <nav class="navbar">
 
+        <div class="nav-container">
 
-<nav class="navbar">
+            <div class="nav-logo">
+                📚 CSTian BOOKSTORE
+            </div>
 
-<div class="nav-container">
 
-<div class="nav-logo">
-📚 RAKIB BOOKSTORE
-</div>
+            <div class="nav-links">
 
+                <a href="index.html" class="nav-link">Home</a>
 
-<div class="nav-links">
+                <a href="books.html" class="nav-link">Books</a>
 
-<a href="index.html" class="nav-link">Home</a>
+                <a href="cart.html" class="nav-link">Cart <span id="cartCount" class="cart-badge">0</span></a>
 
-<a href="books.html" class="nav-link">Books</a>
+                <button id="themeToggle" class="theme-toggle" title="Toggle Dark Theme">
+                    🌙
+                </button>
 
-<a href="cart.html" class="nav-link">Cart <span id="cartCount" class="cart-badge">0</span></a>
+                <div id="userNav" class="user-nav">
+                    <a href="dashboard.html" class="nav-link">Dashboard</a>
+                    <button id="logoutBtn" class="nav-btn">Logout</button>
+                </div>
 
-<button id="themeToggle" class="theme-toggle" title="Toggle Dark Theme">
-🌙
-</button>
+                <div id="authNav" class="auth-nav">
+                    <a href="login.html" class="nav-link">Login</a>
+                    <a href="signup.html" class="nav-link">Sign Up</a>
+                </div>
 
-<div id="userNav" class="user-nav">
-<a href="dashboard.html" class="nav-link">Dashboard</a>
-<button id="logoutBtn" class="nav-btn">Logout</button>
-</div>
+            </div>
 
-<div id="authNav" class="auth-nav">
-<a href="login.html" class="nav-link">Login</a>
-<a href="signup.html" class="nav-link">Sign Up</a>
-</div>
 
-</div>
+        </div>
 
 
-</div>
+    </nav>
 
 
-</nav>
+    <section class="book-details-section">
 
+        <div class="details-container">
 
-<section class="book-details-section">
+            <div class="book-details-image">
 
-<div class="details-container">
+                <img id="bookImage" src="" alt="Book Cover"
+                    onerror="this.src='https://via.placeholder.com/400x600?text=No+Image'">
 
-<div class="book-details-image">
+            </div>
 
-<img id="bookImage" src="" alt="Book Cover" onerror="this.src='https://via.placeholder.com/400x600?text=No+Image'">
 
-</div>
+            <div class="book-details-info">
 
+                <h1 id="bookTitle">Book Title</h1>
 
-<div class="book-details-info">
+                <p id="bookAuthor" class="details-author">by Author Name</p>
 
-<h1 id="bookTitle">Book Title</h1>
+                <div class="details-meta">
 
-<p id="bookAuthor" class="details-author">by Author Name</p>
+                    <div class="meta-item">
 
-<div class="details-meta">
+                        <span class="meta-label">Category:</span>
 
-<div class="meta-item">
+                        <span id="bookCategory" class="meta-value">Programming</span>
 
-<span class="meta-label">Category:</span>
+                    </div>
 
-<span id="bookCategory" class="meta-value">Programming</span>
 
-</div>
+                    <div class="meta-item">
 
+                        <span class="meta-label">Rating:</span>
 
-<div class="meta-item">
+                        <span id="bookRating" class="meta-value">⭐ 4.5</span>
 
-<span class="meta-label">Rating:</span>
+                    </div>
 
-<span id="bookRating" class="meta-value">⭐ 4.5</span>
 
-</div>
+                    <div class="meta-item">
 
+                        <span class="meta-label">Availability:</span>
 
-<div class="meta-item">
+                        <span id="bookAvailability" class="meta-value">In Stock</span>
 
-<span class="meta-label">Availability:</span>
+                    </div>
 
-<span id="bookAvailability" class="meta-value">In Stock</span>
 
-</div>
+                    <div class="meta-item">
 
+                        <span class="meta-label">Quantity:</span>
 
-<div class="meta-item">
+                        <span id="bookQuantity" class="meta-value">10</span>
 
-<span class="meta-label">Quantity:</span>
+                    </div>
 
-<span id="bookQuantity" class="meta-value">10</span>
 
-</div>
+                </div>
 
 
-</div>
+                <div class="details-price">
 
+                    <span class="price-label">Price:</span>
 
-<div class="details-price">
+                    <span id="bookPrice" class="price-value">$49.99</span>
 
-<span class="price-label">Price:</span>
+                </div>
 
-<span id="bookPrice" class="price-value">$49.99</span>
 
-</div>
+                <div class="details-description">
 
+                    <h3>About this book</h3>
 
-<div class="details-description">
+                    <p>This is a comprehensive guide that covers all the essential topics. Perfect for both beginners
+                        and advanced readers looking to enhance their knowledge.</p>
 
-<h3>About this book</h3>
+                </div>
 
-<p>This is a comprehensive guide that covers all the essential topics. Perfect for both beginners and advanced readers looking to enhance their knowledge.</p>
 
-</div>
+                <div class="details-actions">
 
+                    <div class="quantity-selector">
 
-<div class="details-actions">
+                        <button onclick="changeQuantity(-1)" class="qty-btn">-</button>
 
-<div class="quantity-selector">
+                        <span id="selectedQuantity">1</span>
 
-<button onclick="changeQuantity(-1)" class="qty-btn">-</button>
+                        <button onclick="changeQuantity(1)" class="qty-btn">+</button>
 
-<span id="selectedQuantity">1</span>
+                    </div>
 
-<button onclick="changeQuantity(1)" class="qty-btn">+</button>
 
-</div>
+                    <button onclick="addToCartFromDetails()" class="btn-add-cart">Add to Cart</button>
 
 
-<button onclick="addToCartFromDetails()" class="btn-add-cart">Add to Cart</button>
+                    <button onclick="buyNow()" class="btn-buy-now">Buy Now</button>
 
 
-<button onclick="buyNow()" class="btn-buy-now">Buy Now</button>
+                </div>
 
 
-</div>
+            </div>
 
 
-</div>
+        </div>
 
 
-</div>
+    </section>
 
 
-</section>
+    <section class="related-books">
 
+        <div class="section-header">
 
-<section class="related-books">
+            <h2>Related Books</h2>
 
-<div class="section-header">
+        </div>
 
-<h2>Related Books</h2>
 
-</div>
+        <div class="book-container" id="relatedBooks">
 
 
-<div class="book-container" id="relatedBooks">
+        </div>
 
 
-</div>
+    </section>
 
 
-</section>
+    <footer class="footer">
 
+        <div class="footer-content">
 
-<footer class="footer">
+            <div class="footer-section">
 
-<div class="footer-content">
+                <h3>RAKIB BOOKSTORE</h3>
 
-<div class="footer-section">
+                <p>Your one-stop destination for quality books</p>
 
-<h3>RAKIB BOOKSTORE</h3>
+            </div>
 
-<p>Your one-stop destination for quality books</p>
 
-</div>
+            <div class="footer-section">
 
+                <h3>Quick Links</h3>
 
-<div class="footer-section">
+                <a href="index.html">Home</a>
 
-<h3>Quick Links</h3>
+                <a href="books.html">Books</a>
 
-<a href="index.html">Home</a>
+                <a href="cart.html">Cart</a>
 
-<a href="books.html">Books</a>
+            </div>
 
-<a href="cart.html">Cart</a>
 
-</div>
+            <div class="footer-section">
 
+                <h3>Contact</h3>
 
-<div class="footer-section">
+                <p>support@bookstore.com</p>
 
-<h3>Contact</h3>
+                <p>+1 234 567 890</p>
 
-<p>support@bookstore.com</p>
+            </div>
 
-<p>+1 234 567 890</p>
 
-</div>
+        </div>
 
 
-</div>
+        <div class="footer-bottom">
 
+            <p>&copy; 2024 RAKIB BOOKSTORE. All rights reserved.</p>
 
-<div class="footer-bottom">
+            <p>Created with ❤️ by Rakib | Since 2007</p>
 
-<p>&copy; 2024 RAKIB BOOKSTORE. All rights reserved.</p>
+        </div>
 
-<p>Created with ❤️ by Rakib | Since 2007</p>
 
-</div>
+    </footer>
 
 
-</footer>
 
+    <script src="js/books.js"></script>
 
+    <script src="js/cart.js"></script>
 
-<script src="js/books.js"></script>
+    <script src="js/theme.js"></script>
 
-<script src="js/cart.js"></script>
-
-<script src="js/theme.js"></script>
-
-<script src="js/book-details.js"></script>
+    <script src="js/book-details.js"></script>
 
 
 </body>
