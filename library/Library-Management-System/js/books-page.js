@@ -7,7 +7,7 @@ let filteredBooks = [];
 document.addEventListener('DOMContentLoaded', () => {
     const books = JSON.parse(localStorage.getItem('books')) || [];
     filteredBooks = books;
-    
+
     // Check for selected category from home page
     const selectedCategory = localStorage.getItem('selectedCategory');
     if (selectedCategory) {
@@ -15,17 +15,17 @@ document.addEventListener('DOMContentLoaded', () => {
         filteredBooks = filterCategory(selectedCategory);
         localStorage.removeItem('selectedCategory');
     }
-    
+
     displayBooks(filteredBooks);
     checkAuth();
     updateCartCount();
-    
+
     // Event listeners
     document.getElementById('searchInput').addEventListener('input', handleSearch);
     document.getElementById('categorySelect').addEventListener('change', handleCategoryFilter);
     document.getElementById('prevBtn').addEventListener('click', () => changePage(-1));
     document.getElementById('nextBtn').addEventListener('click', () => changePage(1));
-    
+
     // Logout
     const logoutBtn = document.getElementById('logoutBtn');
     if (logoutBtn) {
@@ -40,22 +40,22 @@ document.addEventListener('DOMContentLoaded', () => {
 function displayBooks(books) {
     const container = document.getElementById('bookContainer');
     const bookCount = document.getElementById('bookCount');
-    
+
     if (!container) return;
-    
+
     // Update book count
     if (bookCount) {
         bookCount.textContent = `${books.length} books found`;
     }
-    
+
     // Calculate pagination
     const totalPages = Math.ceil(books.length / booksPerPage);
     const start = (currentPage - 1) * booksPerPage;
     const end = start + booksPerPage;
     const pageBooks = books.slice(start, end);
-    
+
     container.innerHTML = '';
-    
+
     if (pageBooks.length === 0) {
         container.innerHTML = `
             <div class="no-books">
@@ -65,12 +65,12 @@ function displayBooks(books) {
         `;
         return;
     }
-    
+
     pageBooks.forEach(book => {
         const card = createBookCard(book);
         container.appendChild(card);
     });
-    
+
     // Update pagination
     updatePagination(totalPages);
 }
@@ -107,12 +107,12 @@ function createBookCard(book) {
 function handleSearch(e) {
     const searchTerm = e.target.value.toLowerCase();
     const books = JSON.parse(localStorage.getItem('books')) || [];
-    
-    filteredBooks = books.filter(book => 
+
+    filteredBooks = books.filter(book =>
         book.title.toLowerCase().includes(searchTerm) ||
         book.author.toLowerCase().includes(searchTerm)
     );
-    
+
     currentPage = 1;
     displayBooks(filteredBooks);
 }
@@ -121,13 +121,13 @@ function handleSearch(e) {
 function handleCategoryFilter(e) {
     const category = e.target.value;
     const books = JSON.parse(localStorage.getItem('books')) || [];
-    
+
     if (category === 'all') {
         filteredBooks = books;
     } else {
         filteredBooks = books.filter(book => book.category === category);
     }
-    
+
     currentPage = 1;
     displayBooks(filteredBooks);
 }
@@ -145,7 +145,7 @@ function filterCategory(category) {
 function changePage(direction) {
     const totalPages = Math.ceil(filteredBooks.length / booksPerPage);
     const newPage = currentPage + direction;
-    
+
     if (newPage >= 1 && newPage <= totalPages) {
         currentPage = newPage;
         displayBooks(filteredBooks);
@@ -157,15 +157,15 @@ function updatePagination(totalPages) {
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
     const pageNumber = document.getElementById('pageNumber');
-    
+
     if (pageNumber) {
         pageNumber.textContent = currentPage;
     }
-    
+
     if (prevBtn) {
         prevBtn.disabled = currentPage === 1;
     }
-    
+
     if (nextBtn) {
         nextBtn.disabled = currentPage === totalPages || totalPages === 0;
     }

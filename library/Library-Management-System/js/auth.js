@@ -3,80 +3,80 @@
 const signupForm = document.getElementById("signupForm");
 
 
-if(signupForm){
+if (signupForm) {
 
 
-signupForm.addEventListener("submit",function(e){
+    signupForm.addEventListener("submit", function (e) {
 
 
-e.preventDefault();
+        e.preventDefault();
 
 
-let user={
+        let user = {
 
-name:document.getElementById("name").value,
+            name: document.getElementById("name").value,
 
-email:document.getElementById("email").value,
+            email: document.getElementById("email").value,
 
-password:document.getElementById("password").value
+            password: document.getElementById("password").value
 
-};
-
-
-
-let confirmPassword =
-document.getElementById("confirmPassword").value;
+        };
 
 
 
-if(user.password !== confirmPassword){
-
-alert("Password does not match");
-return;
-
-}
-
-if(user.password.length < 6){
-
-alert("Password must be at least 6 characters");
-return;
-
-}
-
-if(user.name.length < 2){
-
-alert("Name must be at least 2 characters");
-return;
-
-}
+        let confirmPassword =
+            document.getElementById("confirmPassword").value;
 
 
 
-// Get existing users array
-let allUsers = JSON.parse(localStorage.getItem("users")) || [];
+        if (user.password !== confirmPassword) {
 
-// Check if email already exists
-let existingUser = allUsers.find(u => u.email === user.email);
-if(existingUser){
-alert("Email already registered");
-return;
-}
+            alert("Password does not match");
+            return;
 
+        }
 
+        if (user.password.length < 6) {
 
-// Add new user
-allUsers.push(user);
-localStorage.setItem("users", JSON.stringify(allUsers));
+            alert("Password must be at least 6 characters");
+            return;
 
+        }
 
+        if (user.name.length < 2) {
 
-alert("Signup Successful");
+            alert("Name must be at least 2 characters");
+            return;
 
-
-window.location.href="login.html";
+        }
 
 
-});
+
+        // Get existing users array
+        let allUsers = JSON.parse(localStorage.getItem("users")) || [];
+
+        // Check if email already exists
+        let existingUser = allUsers.find(u => u.email === user.email);
+        if (existingUser) {
+            alert("Email already registered");
+            return;
+        }
+
+
+
+        // Add new user
+        allUsers.push(user);
+        localStorage.setItem("users", JSON.stringify(allUsers));
+
+
+
+        alert("Signup Successful");
+
+
+        window.location.href = "login.html";
+
+
+    });
 
 
 }
@@ -89,73 +89,73 @@ window.location.href="login.html";
 
 
 const loginForm =
-document.getElementById("loginForm");
+    document.getElementById("loginForm");
 
 
 
-if(loginForm){
+if (loginForm) {
 
 
-loginForm.addEventListener("submit",function(e){
+    loginForm.addEventListener("submit", function (e) {
 
 
-e.preventDefault();
-
-
-
-let email =
-document.getElementById("loginEmail").value;
+        e.preventDefault();
 
 
 
-let password =
-document.getElementById("loginPassword").value;
+        let email =
+            document.getElementById("loginEmail").value;
 
 
 
-let allUsers = JSON.parse(localStorage.getItem("users")) || [];
+        let password =
+            document.getElementById("loginPassword").value;
 
 
 
-let savedUser = allUsers.find(u => u.email === email && u.password === password);
+        let allUsers = JSON.parse(localStorage.getItem("users")) || [];
 
 
 
-if(!savedUser){
-
-alert("Invalid email or password");
-return;
-
-}
+        let savedUser = allUsers.find(u => u.email === email && u.password === password);
 
 
 
-// Set current user
-localStorage.setItem("currentUser", JSON.stringify(savedUser));
+        if (!savedUser) {
+
+            alert("Invalid email or password");
+            return;
+
+        }
 
 
-// Check remember me
-const rememberMe = document.getElementById("rememberMe");
-if(rememberMe && rememberMe.checked){
-localStorage.setItem("rememberedEmail", email);
-} else {
-localStorage.removeItem("rememberedEmail");
-}
+
+        // Set current user
+        localStorage.setItem("currentUser", JSON.stringify(savedUser));
 
 
-alert("Login Successful");
+        // Check remember me
+        const rememberMe = document.getElementById("rememberMe");
+        if (rememberMe && rememberMe.checked) {
+            localStorage.setItem("rememberedEmail", email);
+        } else {
+            localStorage.removeItem("rememberedEmail");
+        }
 
 
-window.location.href="dashboard.html";
+        alert("Login Successful");
 
 
-});
+        window.location.href = "dashboard.html";
+
+
+    });
 
 
 
 }
 
 // Forgot password function
-function showForgotPassword(){
-alert("Password reset link has been sent to your email (demo feature)");
+function showForgotPassword() {
+    alert("Password reset link has been sent to your email (demo feature)");
 }

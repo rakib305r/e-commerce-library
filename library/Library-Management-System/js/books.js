@@ -223,8 +223,8 @@ image:"https://static-01.daraz.com.bd/p/83cb389fea6e3d5df2f85d9bee2949fc.jpg"
 
 
 localStorage.setItem(
-"books",
-JSON.stringify(books)
+    "books",
+    JSON.stringify(books)
 );
 
 
@@ -232,28 +232,28 @@ JSON.stringify(books)
 
 // Add Book
 
-function addBook(title,author,category,quantity,price,rating,availability,image){
+function addBook(title, author, category, quantity, price, rating, availability, image) {
 
-books.push({
+    books.push({
 
-id:Date.now(),
+        id: Date.now(),
 
-title,
+        title,
 
-author,
+        author,
 
-category,
+        category,
 
-quantity:Number(quantity),
-price:Number(price),
-rating:Number(rating),
-availability,
-image:image || "https://via.placeholder.com/200x300?text=No+Image"
+        quantity: Number(quantity),
+        price: Number(price),
+        rating: Number(rating),
+        availability,
+        image: image || "https://via.placeholder.com/200x300?text=No+Image"
 
-});
+    });
 
 
-saveBooks();
+    saveBooks();
 
 }
 
@@ -262,15 +262,15 @@ saveBooks();
 
 // Delete Book
 
-function deleteBook(id){
+function deleteBook(id) {
 
-books =
-books.filter(
-book=>book.id!==id
-);
+    books =
+        books.filter(
+            book => book.id !== id
+        );
 
 
-saveBooks();
+    saveBooks();
 
 }
 
@@ -279,35 +279,35 @@ saveBooks();
 
 // Edit Book
 
-function editBook(id,data){
+function editBook(id, data) {
 
 
-const book =
-books.find(
-b=>b.id===id
-);
-
-
-
-if(book){
-
-book.title=data.title;
-
-book.author=data.author;
-
-book.category=data.category;
-
-book.quantity=Number(data.quantity);
-book.price=Number(data.price);
-book.rating=Number(data.rating);
-book.availability=data.availability;
-book.image=data.image;
-
-}
+    const book =
+        books.find(
+            b => b.id === id
+        );
 
 
 
-saveBooks();
+    if (book) {
+
+        book.title = data.title;
+
+        book.author = data.author;
+
+        book.category = data.category;
+
+        book.quantity = Number(data.quantity);
+        book.price = Number(data.price);
+        book.rating = Number(data.rating);
+        book.availability = data.availability;
+        book.image = data.image;
+
+    }
+
+
+
+    saveBooks();
 
 
 }
@@ -317,18 +317,18 @@ saveBooks();
 
 // Search
 
-function searchBooks(value){
+function searchBooks(value) {
 
 
-return books.filter(book=>
+    return books.filter(book =>
 
-book.title
-.toLowerCase()
-.includes(
-value.toLowerCase()
-)
+        book.title
+            .toLowerCase()
+            .includes(
+                value.toLowerCase()
+            )
 
-);
+    );
 
 
 }
@@ -339,37 +339,37 @@ value.toLowerCase()
 
 // Filter
 
-function filterCategory(category){
+function filterCategory(category) {
 
 
-if(category==="all"){
+    if (category === "all") {
 
-return books;
+        return books;
+
+    }
+
+
+    return books.filter(book =>
+
+        book.category === category
+
+    );
+
 
 }
 
 
-return books.filter(book=>
-
-book.category===category
-
-);
-
-
-}
 
 
 
+function saveBooks() {
 
+    localStorage.setItem(
 
-function saveBooks(){
+        "books",
 
-localStorage.setItem(
+        JSON.stringify(books)
 
-"books",
-
-JSON.stringify(books)
-
-);
+    );
 
 }
