@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Books Management</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body>
+
+
+<div class="dashboard">
+
+
+<aside class="sidebar">
+
+<h2>📚 Library</h2>
+
+<a href="dashboard.html">Dashboard</a>
+
+<a href="books.html">Books</a>
+
+<a href="borrow.html">Borrow</a>
+
+<a href="members.html">Members</a>
+
+
+<button id="logoutBtn">
+Logout
+</button>
+
+
+</aside>
+
+
+
+<main class="main-content">
+
+
+<header class="topbar">
+
+<h2>
+Book Management
+</h2>
+
+</header>
+
+
+
+<section class="book-tools">
+
+
+<input 
+id="searchInput"
+placeholder="Search book..."
+>
+
+
+
+<select id="categorySelect">
+
+<option value="all">
+All Category
+</option>
+
+<option value="Programming">
+Programming
+</option>
+
+<option value="Science">
+Science
+</option>
+
+<option value="Novel">
+Novel
+</option>
+
+</select>
+
+
+</section>
+
+
+
+
+<section class="add-book">
+
+
+<input id="title" placeholder="Book Title">
+
+
+<input id="author" placeholder="Author">
+
+
+<select id="category">
+
+<option>
+Programming
+</option>
+
+<option>
+Science
+</option>
+
+<option>
+Novel
+</option>
+
+</select>
+
+
+<input 
+id="quantity"
+type="number"
+placeholder="Quantity"
+>
+
+
+<button id="addBtn">
+Add Book
+</button>
+
+
+</section>
+
+
+
+
+
+<table class="book-table">
+
+
+<thead>
+
+<tr>
+
+<th>Title</th>
+
+<th>Author</th>
+
+<th>Category</th>
+
+<th>Quantity</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+
+<tbody id="bookList">
+
+
+</tbody>
+
+
+</table>
+
+
+
+<div class="pagination">
+
+
+<button id="prevBtn">
+Previous
+</button>
+
+
+<span id="pageNumber">
+1
+</span>
+
+
+<button id="nextBtn">
+Next
+</button>
+
+
+</div>
+
+
+
+
+</main>
+
+
+</div>
+
+
+
+
+<script src="js/app.js"></script>
+
+<script src="js/books.js"></script>
+
+
+
+<script>
+
+
+let currentPage=1;
+
+let booksPerPage=5;
+
+
+
+function displayBooks(data){
+
+
+const list =
+document.getElementById("bookList");
+
+
+list.innerHTML="";
+
+
+
+let start =
+(currentPage-1)
+*
+booksPerPage;
+
+
+let end =
+start + booksPerPage;
+
+
+
+let pageBooks =
+data.slice(start,end);
+
+
+
+pageBooks.forEach(book=>{
+
+
+list.innerHTML += `
+
+<tr>
+
+<td>${book.title}</td>
+
+<td>${book.author}</td>
+
+<td>${book.category}</td>
+
+<td>${book.quantity}</td>
+
+
+<td>
+
+
+<button onclick="editBookData(${book.id})">
+Edit
+</button>
+
+
+<button onclick="removeBook(${book.id})">
+Delete
+</button>
+
+
+</td>
+
+
+</tr>
+
+`;
+
+
+});
+
+
+document.getElementById("pageNumber")
+.innerText=currentPage;
+
+
+}
+
+
+
+
+
+function removeBook(id){
+
+deleteBook(id);
+
+displayBooks(books);
+
+}
+
+
+
+
+function editBookData(id){
+
+
+let title =
+prompt("Book Title");
+
+
+let author =
+prompt("Author");
+
+
+let quantity =
+prompt("Quantity");
+
+
+editBook(id,{
+
+title,
+
+author,
+
+category:"Programming",
+
+quantity
+
+});
+
+
+displayBooks(books);
+
+
+}
+
+
+
+
+
+document
+.getElementById("addBtn")
+.onclick=function(){
+
+
+addBook(
+
+title.value,
+
+author.value,
+
+category.value,
+
+quantity.value
+
+);
+
+
+displayBooks(books);
+
+
+};
+
+
+
+
+
+
+searchInput.oninput=function(){
+
+
+currentPage=1;
+
+
+displayBooks(
+searchBooks(
+this.value
+)
+
+);
+
+
+};
+
+
+
+
+
+categorySelect.onchange=function(){
+
+
+currentPage=1;
+
+
+displayBooks(
+filterCategory(
+this.value
+)
+
+);
+
+
+};
+
+
+
+
+
+
+prevBtn.onclick=function(){
+
+
+if(currentPage>1){
+
+currentPage--;
+
+displayBooks(books);
+
+}
+
+
+};
+
+
+
+
+
+nextBtn.onclick=function(){
+
+
+if(
+currentPage <
+Math.ceil(
+books.length/booksPerPage
+)
+
+){
+
+currentPage++;
+
+displayBooks(books);
+
+}
+
+
+};
+
+
+
+
+
+displayBooks(books);
+
+
+</script>
+
+
+</body>
+
+</html>
