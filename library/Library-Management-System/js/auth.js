@@ -36,19 +36,44 @@ return;
 
 }
 
+if(user.password.length < 6){
+
+alert("Password must be at least 6 characters");
+return;
+
+}
+
+if(user.name.length < 2){
+
+alert("Name must be at least 2 characters");
+return;
+
+}
 
 
-localStorage.setItem(
-"user",
-JSON.stringify(user)
-);
+
+// Get existing users array
+let allUsers = JSON.parse(localStorage.getItem("users")) || [];
+
+// Check if email already exists
+let existingUser = allUsers.find(u => u.email === user.email);
+if(existingUser){
+alert("Email already registered");
+return;
+}
+
+
+
+// Add new user
+allUsers.push(user);
+localStorage.setItem("users", JSON.stringify(allUsers));
 
 
 
 alert("Signup Successful");
 
 
-window.location.href="index.html";
+window.location.href="login.html";
 
 
 });
@@ -88,28 +113,34 @@ document.getElementById("loginPassword").value;
 
 
 
+let allUsers = JSON.parse(localStorage.getItem("users")) || [];
 
-let savedUser =
-JSON.parse(
-localStorage.getItem("user")
-);
+
+
+let savedUser = allUsers.find(u => u.email === email && u.password === password);
 
 
 
 if(!savedUser){
 
-alert("Please signup first");
-
+alert("Invalid email or password");
 return;
 
 }
 
 
 
-if(
-email === savedUser.email &&
-password === savedUser.password
-){
+// Set current user
+localStorage.setItem("currentUser", JSON.stringify(savedUser));
+
+
+// Check remember me
+const rememberMe = document.getElementById("rememberMe");
+if(rememberMe && rememberMe.checked){
+localStorage.setItem("rememberedEmail", email);
+} else {
+localStorage.removeItem("rememberedEmail");
+}
 
 
 alert("Login Successful");
@@ -118,19 +149,13 @@ alert("Login Successful");
 window.location.href="dashboard.html";
 
 
-}
-
-else{
-
-
-alert("Wrong Email or Password");
-
-
-}
-
-
-
 });
 
 
+
+}
+
+// Forgot password function
+function showForgotPassword(){
+alert("Password reset link has been sent to your email (demo feature)");
 }

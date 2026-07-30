@@ -6,91 +6,46 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Library Login</title>
+<title>BookStore - Your Online Library</title>
 
 <link rel="stylesheet" href="css/style.css">
 
 </head>
 
 
-<body class="auth-body">
+<body>
 
 
-<div class="auth-container">
+<nav class="navbar">
 
+<div class="nav-container">
 
-<div class="auth-logo">
-📚
+<div class="nav-logo">
+📚 RAKIB BOOKSTORE
 </div>
 
 
-<h1>
-Library
-</h1>
+<div class="nav-links">
 
+<a href="index.html" class="nav-link active">Home</a>
 
-<h3>
-Login to your account
-</h3>
+<a href="books.html" class="nav-link">Books</a>
 
+<a href="cart.html" class="nav-link">Cart <span id="cartCount" class="cart-badge">0</span></a>
 
-
-<form id="loginForm">
-
-
-<div class="auth-group">
-
-<label>
-Email
-</label>
-
-<input 
-id="loginEmail"
-type="email"
-placeholder="Enter your email"
->
-
-</div>
-
-
-
-<div class="auth-group">
-
-<label>
-Password
-</label>
-
-<input 
-id="loginPassword"
-type="password"
-placeholder="Enter your password"
->
-
-</div>
-
-
-
-<button 
-type="submit"
-class="auth-btn">
-
-Login
-
+<button id="themeToggle" class="theme-toggle" title="Toggle Dark Theme">
+🌙
 </button>
 
+<div id="userNav" class="user-nav">
+<a href="dashboard.html" class="nav-link">Dashboard</a>
+<button id="logoutBtn" class="nav-btn">Logout</button>
+</div>
 
-</form>
-
-
-
-
-<div class="auth-link">
-
-Don't have an account?
-
-<a href="signup.html">
-Sign Up
-</a>
+<div id="authNav" class="auth-nav">
+<a href="login.html" class="nav-link">Login</a>
+<a href="signup.html" class="nav-link">Sign Up</a>
+</div>
 
 </div>
 
@@ -98,8 +53,155 @@ Sign Up
 </div>
 
 
+</nav>
 
-<script src="js/auth.js"></script>
+
+<header class="hero">
+
+<div class="hero-content">
+
+<h1>Welcome to BookStore</h1>
+
+<p>Discover your next favorite book from our extensive collection</p>
+
+<a href="books.html" class="hero-btn">Browse Books</a>
+
+</div>
+
+
+</header>
+
+
+<section class="featured-section">
+
+<div class="section-header">
+
+<h2>Featured Books</h2>
+
+<a href="books.html" class="view-all">View All →</a>
+
+</div>
+
+
+<div class="book-container" id="featuredBooks">
+
+
+</div>
+
+
+</section>
+
+
+<section class="categories-section">
+
+<div class="section-header">
+
+<h2>Browse by Category</h2>
+
+</div>
+
+
+<div class="category-grid">
+
+<div class="category-card" onclick="filterByCategory('Programming')">
+
+<div class="category-icon">💻</div>
+
+<h3>Programming</h3>
+
+<p>120+ Books</p>
+
+</div>
+
+
+<div class="category-card" onclick="filterByCategory('Science')">
+
+<div class="category-icon">🔬</div>
+
+<h3>Science</h3>
+
+<p>45+ Books</p>
+
+</div>
+
+
+<div class="category-card" onclick="filterByCategory('Novel')">
+
+<div class="category-icon">📖</div>
+
+<h3>Novels</h3>
+
+<p>80+ Books</p>
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+<footer class="footer">
+
+<div class="footer-content">
+
+<div class="footer-section">
+
+<h3>RAKIB BOOKSTORE</h3>
+
+<p>Your one-stop destination for quality books</p>
+
+</div>
+
+
+<div class="footer-section">
+
+<h3>Quick Links</h3>
+
+<a href="index.html">Home</a>
+
+<a href="books.html">Books</a>
+
+<a href="cart.html">Cart</a>
+
+</div>
+
+
+<div class="footer-section">
+
+<h3>Contact</h3>
+
+<p>support@bookstore.com</p>
+
+<p>+1 234 567 890</p>
+
+</div>
+
+
+</div>
+
+
+<div class="footer-bottom">
+
+<p>&copy; 2024 RAKIB BOOKSTORE. All rights reserved.</p>
+
+<p>Created with ❤️ by Rakib | Since 2007</p>
+
+</div>
+
+
+</footer>
+
+
+
+<script src="js/books.js"></script>
+
+<script src="js/cart.js"></script>
+
+<script src="js/theme.js"></script>
+
+<script src="js/home.js"></script>
 
 
 </body>

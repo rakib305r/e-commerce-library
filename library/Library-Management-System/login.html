@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Login - BookStore</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body>
+
+
+<nav class="navbar">
+
+<div class="nav-container">
+
+<div class="nav-logo">
+📚 RAKIB BOOKSTORE
+</div>
+
+
+<div class="nav-links">
+
+<a href="index.html" class="nav-link">Home</a>
+
+<a href="books.html" class="nav-link">Books</a>
+
+<a href="cart.html" class="nav-link">Cart <span id="cartCount" class="cart-badge">0</span></a>
+
+<button id="themeToggle" class="theme-toggle" title="Toggle Dark Theme">
+🌙
+</button>
+
+<div id="userNav" class="user-nav">
+<a href="dashboard.html" class="nav-link">Dashboard</a>
+<button id="logoutBtn" class="nav-btn">Logout</button>
+</div>
+
+<div id="authNav" class="auth-nav">
+<a href="login.html" class="nav-link active">Login</a>
+<a href="signup.html" class="nav-link">Sign Up</a>
+</div>
+
+</div>
+
+
+</div>
+
+
+</nav>
+
+
+<section class="auth-section">
+
+
+<div class="auth-container">
+
+
+<div class="auth-logo">
+📚
+</div>
+
+
+<h1>
+Welcome Back
+</h1>
+
+
+<h3>
+Login to your account
+</h3>
+
+
+
+<form id="loginForm">
+
+
+<div class="auth-group">
+
+<label>
+Email
+</label>
+
+<input 
+id="loginEmail"
+type="email"
+placeholder="Enter your email"
+required
+>
+
+</div>
+
+
+
+<div class="auth-group">
+
+<label>
+Password
+</label>
+
+<input 
+id="loginPassword"
+type="password"
+placeholder="Enter your password"
+required
+>
+
+</div>
+
+
+<div class="auth-group">
+
+<label class="remember-label">
+
+<input type="checkbox" id="rememberMe">
+
+Remember me
+
+</label>
+
+</div>
+
+
+
+<button 
+type="submit"
+class="auth-btn">
+
+Login
+
+</button>
+
+
+</form>
+
+
+
+
+<div class="auth-link">
+
+Don't have an account?
+
+<a href="signup.html">
+Sign Up
+</a>
+
+</div>
+
+
+<div class="auth-footer">
+
+<a href="#" onclick="showForgotPassword()">Forgot Password?</a>
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+<script src="js/cart.js"></script>
+
+<script src="js/theme.js"></script>
+
+<script src="js/auth.js"></script>
+
+<script src="js/login.js"></script>
+
+
+</body>
+
+</html>

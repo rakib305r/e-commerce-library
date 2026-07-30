@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Browse Books - BookStore</title>
+<title>Shopping Cart - BookStore</title>
 
 <link rel="stylesheet" href="css/style.css">
 
@@ -29,9 +29,9 @@
 
 <a href="index.html" class="nav-link">Home</a>
 
-<a href="books.html" class="nav-link active">Books</a>
+<a href="books.html" class="nav-link">Books</a>
 
-<a href="cart.html" class="nav-link">Cart <span id="cartCount" class="cart-badge">0</span></a>
+<a href="cart.html" class="nav-link active">Cart <span id="cartCount" class="cart-badge">0</span></a>
 
 <button id="themeToggle" class="theme-toggle" title="Toggle Dark Theme">
 🌙
@@ -60,9 +60,9 @@
 
 <div class="header-content">
 
-<h1>Browse Books</h1>
+<h1>Shopping Cart</h1>
 
-<p>Explore our collection of amazing books</p>
+<p>Review your selected books</p>
 
 </div>
 
@@ -70,76 +70,30 @@
 </header>
 
 
-<section class="books-toolbar">
+<section class="cart-section">
 
-<div class="toolbar-left">
+<div class="cart-container">
 
-<input 
-id="searchInput"
-type="text"
-placeholder="Search books by title or author..."
-class="search-input"
->
+<div class="cart-items">
 
-
-<select id="categorySelect" class="category-select">
-
-<option value="all">
-All Categories
-</option>
-
-<option value="Programming">
-Programming
-</option>
-
-<option value="Science">
-Science
-</option>
-
-<option value="Novel">
-Novel
-</option>
-
-</select>
+<div id="cartContainer" class="cart-items-list">
 
 
 </div>
 
 
-<div class="toolbar-right">
-
-<span id="bookCount" class="book-count">0 books found</span>
-
 </div>
 
 
-</section>
+<div class="cart-summary">
 
-
-<section class="books-section">
-
-<div class="book-container" id="bookContainer">
+<div id="orderSummary" class="order-summary">
 
 
 </div>
 
 
-<div class="pagination" id="pagination">
-
-
-<button id="prevBtn" class="pagination-btn">
-← Previous
-</button>
-
-
-<span id="pageNumber" class="page-number">
-1
-</span>
-
-
-<button id="nextBtn" class="pagination-btn">
-Next →
-</button>
+</div>
 
 
 </div>
@@ -207,7 +161,7 @@ Next →
 
 <script src="js/theme.js"></script>
 
-<script src="js/books-page.js"></script>
+<script src="js/cart-page.js"></script>
 
 
 </body>

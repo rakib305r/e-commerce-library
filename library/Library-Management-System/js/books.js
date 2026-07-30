@@ -1,83 +1,222 @@
-let books = JSON.parse(localStorage.getItem("books")) || [
+// Force update book data with new images
+localStorage.removeItem("books");
+
+let books = [
 
 {
 id:1,
-title:"Python Programming",
-author:"John Smith",
+title:"Clean Code",
+author:"Robert C. Martin",
 category:"Programming",
-quantity:5
+price:45.99,
+rating:4.8,
+availability:"In Stock",
+quantity:10,
+image:"https://covers.openlibrary.org/b/id/8445261-M.jpg"
 },
 
 {
 id:2,
-title:"Java Complete Reference",
-author:"Herbert Schildt",
+title:"JavaScript: The Definitive Guide",
+author:"David Flanagan",
 category:"Programming",
-quantity:4
+price:52.99,
+rating:4.7,
+availability:"In Stock",
+quantity:8,
+image:"https://covers.openlibrary.org/b/id/10526612-M.jpg"
 },
 
 {
 id:3,
-title:"C Programming",
-author:"Dennis Ritchie",
+title:"Python Crash Course",
+author:"Eric Matthes",
 category:"Programming",
-quantity:6
+price:39.99,
+rating:4.6,
+availability:"In Stock",
+quantity:12,
+image:"https://covers.openlibrary.org/b/id/11532991-M.jpg"
 },
 
 {
 id:4,
-title:"C++ Primer",
-author:"Stanley Lippman",
+title:"Automate the Boring Stuff with Python",
+author:"Al Sweigart",
 category:"Programming",
-quantity:3
+price:29.99,
+rating:4.5,
+availability:"In Stock",
+quantity:15,
+image:"https://covers.openlibrary.org/b/id/12532137-M.jpg"
 },
 
 {
 id:5,
-title:"Machine Learning Basics",
-author:"Andrew Ng",
-category:"Science",
-quantity:5
+title:"C++ Primer",
+author:"Stanley B. Lippman",
+category:"Programming",
+price:58.99,
+rating:4.7,
+availability:"In Stock",
+quantity:7,
+image:"https://covers.openlibrary.org/b/id/8419225-M.jpg"
 },
 
 {
 id:6,
-title:"Artificial Intelligence",
-author:"Russell Norvig",
-category:"Science",
-quantity:4
+title:"Effective Java",
+author:"Joshua Bloch",
+category:"Programming",
+price:54.99,
+rating:4.9,
+availability:"In Stock",
+quantity:9,
+image:"https://www.daraz.com.bd/products/effective-java-third-edition-i327024688.html"
 },
 
 {
 id:7,
-title:"Database System Concepts",
-author:"Silberschatz",
+title:"Head First Java",
+author:"Kathy Sierra",
 category:"Programming",
-quantity:5
+price:42.99,
+rating:4.4,
+availability:"In Stock",
+quantity:11,
+image:"https://covers.openlibrary.org/b/id/8375881-M.jpg"
 },
 
 {
 id:8,
-title:"Computer Networks",
-author:"Andrew Tanenbaum",
-category:"Science",
-quantity:3
+title:"Introduction to Algorithms",
+author:"Thomas H. Cormen",
+category:"Programming",
+price:72.99,
+rating:4.8,
+availability:"In Stock",
+quantity:6,
+image:"https://covers.openlibrary.org/b/id/8400196-M.jpg"
 },
 
 {
 id:9,
-title:"Operating System",
-author:"Galvin",
-category:"Science",
-quantity:4
+title:"Design Patterns",
+author:"Erich Gamma",
+category:"Programming",
+price:59.99,
+rating:4.6,
+availability:"In Stock",
+quantity:8,
+image:"https://covers.openlibrary.org/b/id/8459128-M.jpg"
 },
 
 {
 id:10,
-title:"Web Development",
-author:"Jon Duckett",
+title:"Computer Networks",
+author:"Andrew S. Tanenbaum",
 category:"Programming",
-quantity:5
+price:65.99,
+rating:4.5,
+availability:"In Stock",
+quantity:7,
+image:"https://covers.openlibrary.org/b/id/8436285-M.jpg"
+},
+
+{
+id:11,
+title:"Machine Learning Yearning",
+author:"Andrew Ng",
+category:"Science",
+price:55.99,
+rating:4.7,
+availability:"In Stock",
+quantity:5,
+image:"https://covers.openlibrary.org/b/id/13535629-M.jpg"
+},
+
+{
+id:12,
+title:"Artificial Intelligence",
+author:"Stuart Russell",
+category:"Science",
+price:89.99,
+rating:4.6,
+availability:"In Stock",
+quantity:4,
+image:"https://covers.openlibrary.org/b/id/8436286-M.jpg"
+},
+
+{
+id:13,
+title:"Database System Concepts",
+author:"Abraham Silberschatz",
+category:"Programming",
+price:68.99,
+rating:4.5,
+availability:"In Stock",
+quantity:5,
+image:"https://covers.openlibrary.org/b/id/8436287-M.jpg"
+},
+
+{
+id:14,
+title:"Operating System Concepts",
+author:"Abraham Silberschatz",
+category:"Science",
+price:75.99,
+rating:4.4,
+availability:"In Stock",
+quantity:4,
+image:"https://covers.openlibrary.org/b/id/8436288-M.jpg"
+},
+
+{
+id:15,
+title:"Web Development with Node and Express",
+author:"Ethan Brown",
+category:"Programming",
+price:35.99,
+rating:4.3,
+availability:"In Stock",
+quantity:10,
+image:"https://covers.openlibrary.org/b/id/13535630-M.jpg"
+},
+
+{
+id:16,
+title:"The Alchemist",
+author:"Paulo Coelho",
+category:"Novel",
+price:14.99,
+rating:4.7,
+availability:"In Stock",
+quantity:20,
+image:"https://covers.openlibrary.org/b/id/8445262-M.jpg"
+},
+
+{
+id:17,
+title:"Atomic Habits",
+author:"James Clear",
+category:"Novel",
+price:16.99,
+rating:4.8,
+availability:"In Stock",
+quantity:18,
+image:"https://covers.openlibrary.org/b/id/13535631-M.jpg"
+},
+
+{
+id:18,
+title:"1984",
+author:"George Orwell",
+category:"Novel",
+price:12.99,
+rating:4.6,
+availability:"In Stock",
+quantity:15,
+image:"https://covers.openlibrary.org/b/id/8445263-M.jpg"
 }
 
 ];
@@ -93,7 +232,7 @@ JSON.stringify(books)
 
 // Add Book
 
-function addBook(title,author,category,quantity){
+function addBook(title,author,category,quantity,price,rating,availability,image){
 
 books.push({
 
@@ -105,7 +244,11 @@ author,
 
 category,
 
-quantity:Number(quantity)
+quantity:Number(quantity),
+price:Number(price),
+rating:Number(rating),
+availability,
+image:image || "https://via.placeholder.com/200x300?text=No+Image"
 
 });
 
@@ -155,6 +298,10 @@ book.author=data.author;
 book.category=data.category;
 
 book.quantity=Number(data.quantity);
+book.price=Number(data.price);
+book.rating=Number(data.rating);
+book.availability=data.availability;
+book.image=data.image;
 
 }
 
