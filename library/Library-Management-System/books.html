@@ -1,215 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Browse Books - BookStore</title>
-
-<link rel="stylesheet" href="css/style.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Books - BookStore</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-
-
 <body>
-
-
-<nav class="navbar">
-
-<div class="nav-container">
-
-<div class="nav-logo">
-📚 CSTian BOOKSTORE
-</div>
-
-
-<div class="nav-links">
-
-<a href="index.html" class="nav-link">Home</a>
-
-<a href="books.html" class="nav-link active">Books</a>
-
-<a href="cart.html" class="nav-link">Cart <span id="cartCount" class="cart-badge">0</span></a>
-
-<button id="themeToggle" class="theme-toggle" title="Toggle Dark Theme">
-🌙
-</button>
-
-<div id="userNav" class="user-nav">
-<a href="dashboard.html" class="nav-link">Dashboard</a>
-<button id="logoutBtn" class="nav-btn">Logout</button>
-</div>
-
-<div id="authNav" class="auth-nav">
-<a href="login.html" class="nav-link">Login</a>
-<a href="signup.html" class="nav-link">Sign Up</a>
-</div>
-
-</div>
-
-
-</div>
-
-
-</nav>
-
-
-<header class="page-header">
-
-<div class="header-content">
-
-<h1>Browse Books</h1>
-
-<p>Explore our collection of amazing books</p>
-
-</div>
-
-
-</header>
-
-
-<section class="books-toolbar">
-
-<div class="toolbar-left">
-
-<input 
-id="searchInput"
-type="text"
-placeholder="Search books by title or author..."
-class="search-input"
->
-
-
-<select id="categorySelect" class="category-select">
-
-<option value="all">
-All Categories
-</option>
-
-<option value="Programming">
-Programming
-</option>
-
-<option value="Science">
-Science
-</option>
-
-<option value="Novel">
-Novel
-</option>
-
-</select>
-
-
-</div>
-
-
-<div class="toolbar-right">
-
-<span id="bookCount" class="book-count">0 books found</span>
-
-</div>
-
-
-</section>
-
-
-<section class="books-section">
-
-<div class="book-container" id="bookContainer">
-
-
-</div>
-
-
-<div class="pagination" id="pagination">
-
-
-<button id="prevBtn" class="pagination-btn">
-← Previous
-</button>
-
-
-<span id="pageNumber" class="page-number">
-1
-</span>
-
-
-<button id="nextBtn" class="pagination-btn">
-Next →
-</button>
-
-
-</div>
-
-
-</section>
-
-
-<footer class="footer">
-
-<div class="footer-content">
-
-<div class="footer-section">
-
-<h3>RAKIB BOOKSTORE</h3>
-
-<p>Your one-stop destination for quality books</p>
-
-</div>
-
-
-<div class="footer-section">
-
-<h3>Quick Links</h3>
-
-<a href="index.html">Home</a>
-
-<a href="books.html">Books</a>
-
-<a href="cart.html">Cart</a>
-
-</div>
-
-
-<div class="footer-section">
-
-<h3>Contact</h3>
-
-<p>support@bookstore.com</p>
-
-<p>+1 234 567 890</p>
-
-</div>
-
-
-</div>
-
-
-<div class="footer-bottom">
-
-<p>&copy; 2024 RAKIB BOOKSTORE. All rights reserved.</p>
-
-<p>Created with ❤️ by Rakib | Since 2007</p>
-
-</div>
-
-
-</footer>
-
-
-
-<script src="js/books.js"></script>
-
-<script src="js/cart.js"></script>
-
-<script src="js/theme.js"></script>
-
-<script src="js/books-page.js"></script>
-
-
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                📚 CSTian BOOKSTORE
+            </div>
+
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="books.html" class="nav-link active">Books</a>
+                <a href="cart.html" class="nav-link">Cart <span id="cartCount" class="cart-badge">0</span></a>
+                <button id="themeToggle" class="theme-toggle" title="Toggle Dark Theme">
+                    🌙
+                </button>
+                <div id="userNav" class="user-nav">
+                    <a href="dashboard.html" class="nav-link">Dashboard</a>
+                    <button id="logoutBtn" class="nav-btn">Logout</button>
+                </div>
+                <div id="authNav" class="auth-nav">
+                    <a href="login.html" class="nav-link">Login</a>
+                    <a href="signup.html" class="nav-link">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="header-content">
+            <h1>Browse Books</h1>
+            <p>Explore our collection of amazing books</p>
+        </div>
+    </header>
+
+    <section class="books-toolbar">
+        <div class="toolbar-left">
+            <input id="searchInput" type="text" placeholder="Search books by title or author..." class="search-input">
+            <select id="categorySelect" class="category-select">
+                <option value="all">
+                    All Categories
+                </option>
+                <option value="Programming">
+                    Programming
+                </option>
+                <option value="Science">
+                    Science
+                </option>
+                <option value="Novel">
+                    Novel
+                </option>
+            </select>
+        </div>
+
+        <div class="toolbar-right">
+            <span id="bookCount" class="book-count">0 books found</span>
+        </div>
+    </section>
+
+    <section class="books-section">
+        <div class="book-container" id="bookContainer">
+        </div>
+
+        <div class="pagination" id="pagination">
+            <button id="prevBtn" class="pagination-btn">
+                ← Previous
+            </button>
+            <span id="pageNumber" class="page-number">
+                1
+            </span>
+            <button id="nextBtn" class="pagination-btn">
+                Next →
+            </button>
+        </div>
+
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>CSTian BOOKSTORE</h3>
+                <p>Your one-stop destination for quality books</p>
+
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="books.html">Books</a>
+                <a href="cart.html">Cart</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>support@bookstore.com</p>
+                <p>+1 234 567 890</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 CSTian BOOKSTORE. All rights reserved.</p>
+            <p>Created with ❤️ by Rakib | Since 2007</p>
+        </div>
+
+    </footer>
+    <script src="js/books.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/books-page.js"></script>
 </body>
-
 </html>
