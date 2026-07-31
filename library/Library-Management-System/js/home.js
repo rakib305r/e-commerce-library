@@ -14,6 +14,40 @@ function displayFeaturedBooks() {
     });
 }
 
+// Display best sellers on home page
+function displayBestSellers() {
+    const bestSellersContainer = document.getElementById('bestSellers');
+    if (!bestSellersContainer) return;
+
+    const books = JSON.parse(localStorage.getItem('books')) || [];
+    // Sort by rating and take top 4
+    const bestSellers = [...books].sort((a, b) => b.rating - a.rating).slice(0, 4);
+
+    bestSellersContainer.innerHTML = '';
+
+    bestSellers.forEach(book => {
+        const bookCard = createBookCard(book);
+        bestSellersContainer.appendChild(bookCard);
+    });
+}
+
+// Display new arrivals on home page
+function displayNewArrivals() {
+    const newArrivalsContainer = document.getElementById('newArrivals');
+    if (!newArrivalsContainer) return;
+
+    const books = JSON.parse(localStorage.getItem('books')) || [];
+    // Take last 4 books as new arrivals
+    const newArrivals = books.slice(-4).reverse();
+
+    newArrivalsContainer.innerHTML = '';
+
+    newArrivals.forEach(book => {
+        const bookCard = createBookCard(book);
+        newArrivalsContainer.appendChild(bookCard);
+    });
+}
+
 // Create book card element
 function createBookCard(book) {
     const card = document.createElement('div');
@@ -78,9 +112,81 @@ if (logoutBtn) {
     });
 }
 
+// Back to top button functionality
+const backToTopBtn = document.getElementById('backToTop');
+if (backToTopBtn) {
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            backToTopBtn.classList.add('visible');
+        } else {
+            backToTopBtn.classList.remove('visible');
+        }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
+// Newsletter form handling
+const newsletterForm = document.querySelector('.newsletter-form');
+if (newsletterForm) {
+    newsletterForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = newsletterForm.querySelector('input[type="email"]').value;
+        alert('Thank you for subscribing! We will send updates to ' + email);
+        newsletterForm.reset();
+    });
+}
+
+// Scroll reveal animation
+function revealOnScroll() {
+    const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    
+    reveals.forEach(element => {
+        const windowHeight = window.innerHeight;
+        const elementTop = element.getBoundingClientRect().top;
+        const revealPoint = 150;
+        
+        if (elementTop < windowHeight - revealPoint) {
+            element.classList.add('active');
+        }
+    });
+}
+
+window.addEventListener('scroll', revealOnScroll);
+
+// Navbar search functionality
+const navSearchInput = document.getElementById('navSearchInput');
+const navSearchBtn = document.querySelector('.nav-search-btn');
+
+if (navSearchInput && navSearchBtn) {
+    navSearchBtn.addEventListener('click', () => {
+        const searchTerm = navSearchInput.value.trim();
+        if (searchTerm) {
+            window.location.href = `books.html?search=${encodeURIComponent(searchTerm)}`;
+        }
+    });
+
+    navSearchInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            const searchTerm = navSearchInput.value.trim();
+            if (searchTerm) {
+                window.location.href = `books.html?search=${encodeURIComponent(searchTerm)}`;
+            }
+        }
+    });
+}
+
 // Initialize home page
 document.addEventListener('DOMContentLoaded', () => {
     displayFeaturedBooks();
+    displayBestSellers();
+    displayNewArrivals();
     checkAuth();
     updateCartCount();
+    revealOnScroll();
 });

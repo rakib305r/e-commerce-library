@@ -11,7 +11,18 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                📚 CSTian BOOKSTORE
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                </div>
+                <span>CSTian BOOKSTORE</span>
+            </div>
+            <div class="nav-center">
+                <div class="nav-search">
+                    <input type="text" id="navSearchInput" placeholder="Search books..." class="nav-search-input">
+                    <button class="nav-search-btn">🔍</button>
+                </div>
             </div>
             <div class="nav-links">
                 <a href="index.html" class="nav-link active">Home</a>
@@ -35,14 +46,18 @@
     </nav>
 
     <header class="hero">
+        <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1>Welcome to BookStore</h1>
-            <p>Discover your next favorite book from our extensive collection</p>
-            <a href="books.html" class="hero-btn">Browse Books</a>
+            <h1>Welcome to CSTian BOOKSTORE</h1>
+            <p>Discover your next favorite book from our extensive collection of programming, science, and novels</p>
+            <div class="hero-buttons">
+                <a href="books.html" class="hero-btn primary">Browse Books</a>
+                <a href="#categories" class="hero-btn secondary">Explore Categories</a>
+            </div>
         </div>
     </header>
 
-    <section class="featured-section">
+    <section class="featured-section reveal">
         <div class="section-header">
             <h2>Featured Books</h2>
             <a href="books.html" class="view-all">View All →</a>
@@ -51,23 +66,24 @@
         </div>
     </section>
 
-    <section class="categories-section">
+    <section class="categories-section reveal" id="categories">
         <div class="section-header">
             <h2>Browse by Category</h2>
         </div>
         <div class="category-grid">
-            <div class="category-card" onclick="filterByCategory('Programming')">
+            <div class="category-card stagger-1" onclick="filterByCategory('Programming')">
                 <div class="category-icon">💻</div>
                 <h3>Programming</h3>
                 <p>120+ Books</p>
             </div>
 
-            <div class="category-card" onclick="filterByCategory('Science')">
+            <div class="category-card stagger-2" onclick="filterByCategory('Science')">
                 <div class="category-icon">🔬</div>
                 <h3>Science</h3>
                 <p>45+ Books</p>
             </div>
-            <div class="category-card" onclick="filterByCategory('Novel')">
+
+            <div class="category-card stagger-3" onclick="filterByCategory('Novel')">
                 <div class="category-icon">📖</div>
                 <h3>Novels</h3>
                 <p>80+ Books</p>
@@ -75,51 +91,258 @@
         </div>
     </section>
 
+    <section class="bestsellers-section reveal">
+        <div class="section-header">
+            <h2>Best Sellers</h2>
+            <a href="books.html" class="view-all">View All →</a>
+        </div>
+        <div class="book-container" id="bestSellers">
+        </div>
+    </section>
+
+    <section class="newarrivals-section reveal">
+        <div class="section-header">
+            <h2>New Arrivals</h2>
+            <a href="books.html" class="view-all">View All →</a>
+        </div>
+        <div class="book-container" id="newArrivals">
+        </div>
+    </section>
+
+    <section class="why-choose-section reveal">
+        <div class="section-header">
+            <h2>Why Choose Us</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card stagger-1">
+                <div class="feature-icon">📚</div>
+                <h3>Wide Selection</h3>
+                <p>Thousands of books across multiple categories</p>
+            </div>
+            <div class="feature-card stagger-2">
+                <div class="feature-icon">🚚</div>
+                <h3>Fast Delivery</h3>
+                <p>Quick and reliable shipping worldwide</p>
+            </div>
+            <div class="feature-card stagger-3">
+                <div class="feature-icon">💰</div>
+                <h3>Best Prices</h3>
+                <p>Competitive prices on all books</p>
+            </div>
+            <div class="feature-card stagger-4">
+                <div class="feature-icon">🔒</div>
+                <h3>Secure Payment</h3>
+                <p>Safe and secure payment options</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="reviews-section reveal">
+        <div class="section-header">
+            <h2>Customer Reviews</h2>
+        </div>
+        <div class="reviews-grid">
+            <div class="review-card stagger-1">
+                <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                <p class="review-text">"Amazing collection of books! Found exactly what I was looking for. Fast delivery and excellent customer service."</p>
+                <div class="review-author">
+                    <div class="author-avatar">👤</div>
+                    <div class="author-info">
+                        <h4>Sarah Ahmed</h4>
+                        <span>Verified Buyer</span>
+                    </div>
+                </div>
+            </div>
+            <div class="review-card stagger-2">
+                <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                <p class="review-text">"Best bookstore online! The prices are unbeatable and the book quality is excellent. Highly recommended!"</p>
+                <div class="review-author">
+                    <div class="author-avatar">👤</div>
+                    <div class="author-info">
+                        <h4>John Smith</h4>
+                        <span>Verified Buyer</span>
+                    </div>
+                </div>
+            </div>
+            <div class="review-card stagger-3">
+                <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                <p class="review-text">"Wide variety of programming books. I've been a customer for 2 years and never been disappointed. Great work!"</p>
+                <div class="review-author">
+                    <div class="author-avatar">👤</div>
+                    <div class="author-info">
+                        <h4>Mike Johnson</h4>
+                        <span>Verified Buyer</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="authors-section reveal">
+        <div class="section-header">
+            <h2>Featured Authors</h2>
+            <a href="books.html" class="view-all">View All →</a>
+        </div>
+        <div class="authors-grid">
+            <div class="author-card stagger-1">
+                <div class="author-image">👨‍💻</div>
+                <h3>Robert C. Martin</h3>
+                <p class="author-genre">Programming</p>
+                <p class="author-books">12 Books</p>
+            </div>
+            <div class="author-card stagger-2">
+                <div class="author-image">👩‍💻</div>
+                <h3>Ada Lovelace</h3>
+                <p class="author-genre">Science</p>
+                <p class="author-books">8 Books</p>
+            </div>
+            <div class="author-card stagger-3">
+                <div class="author-image">👨‍🏫</div>
+                <h3>Stephen Hawking</h3>
+                <p class="author-genre">Science</p>
+                <p class="author-books">15 Books</p>
+            </div>
+            <div class="author-card stagger-4">
+                <div class="author-image">👩‍🎨</div>
+                <h3>J.K. Rowling</h3>
+                <p class="author-genre">Novels</p>
+                <p class="author-books">20 Books</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="offers-section reveal">
+        <div class="section-header">
+            <h2>Special Offers</h2>
+        </div>
+        <div class="offers-grid">
+            <div class="offer-card stagger-1">
+                <div class="offer-badge">🔥 HOT</div>
+                <h3>Summer Sale</h3>
+                <p class="offer-discount">Up to 50% OFF</p>
+                <p class="offer-description">Get amazing discounts on selected programming books this summer!</p>
+                <a href="books.html" class="offer-btn">Shop Now</a>
+            </div>
+            <div class="offer-card stagger-2">
+                <div class="offer-badge">⚡ FLASH</div>
+                <h3>Flash Deal</h3>
+                <p class="offer-discount">30% OFF</p>
+                <p class="offer-description">Limited time offer on science books. Don't miss out!</p>
+                <a href="books.html" class="offer-btn">Shop Now</a>
+            </div>
+            <div class="offer-card stagger-3">
+                <div class="offer-badge">🎁 GIFT</div>
+                <h3>Bundle Deal</h3>
+                <p class="offer-discount">Buy 2 Get 1 Free</p>
+                <p class="offer-description">Purchase any 2 novels and get 1 free. Perfect for book lovers!</p>
+                <a href="books.html" class="offer-btn">Shop Now</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="book-month-section reveal">
+        <div class="section-header">
+            <h2>📚 Book of the Month</h2>
+        </div>
+        <div class="book-month-card">
+            <div class="book-month-badge">⭐ EDITOR'S CHOICE</div>
+            <div class="book-month-content">
+                <div class="book-month-image">
+                    <img src="https://covers.openlibrary.org/b/id/8235261-M.jpg" alt="Clean Code Book">
+                </div>
+                <div class="book-month-info">
+                    <h3>Clean Code: A Handbook of Agile Software Craftsmanship</h3>
+                    <p class="book-month-author">by Robert C. Martin</p>
+                    <p class="book-month-description">This month's featured book is a must-read for every programmer. Learn the art of writing clean, maintainable code that stands the test of time.</p>
+                    <div class="book-month-meta">
+                        <span class="book-month-rating">⭐⭐⭐⭐⭐ 4.9/5</span>
+                        <span class="book-month-price">$49.99</span>
+                    </div>
+                    <a href="book-details.html" class="book-month-btn">View Details</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter-section reveal">
+        <div class="newsletter-content">
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>Get updates on new arrivals and special offers</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="faq-section reveal">
+        <div class="section-header">
+            <h2>Frequently Asked Questions</h2>
+        </div>
+        <div class="faq-grid">
+            <div class="faq-card stagger-1">
+                <h3>How do I place an order?</h3>
+                <p>Browse our collection, select your books, add them to cart, and proceed to checkout. You can pay securely using various payment methods.</p>
+            </div>
+            <div class="faq-card stagger-2">
+                <h3>What are the delivery options?</h3>
+                <p>We offer standard delivery (5-7 business days) and express delivery (2-3 business days). Free shipping is available on orders over $50.</p>
+            </div>
+            <div class="faq-card stagger-3">
+                <h3>Can I return books?</h3>
+                <p>Yes, we accept returns within 30 days of purchase. Books must be in their original condition. Contact our support team for assistance.</p>
+            </div>
+            <div class="faq-card stagger-4">
+                <h3>Do you offer gift cards?</h3>
+                <p>Yes! We offer digital and physical gift cards in various denominations. Perfect for book lovers on any occasion.</p>
+            </div>
+            <div class="faq-card stagger-5">
+                <h3>How can I track my order?</h3>
+                <p>Once your order is shipped, you'll receive a tracking number via email. Use it to track your package on our website.</p>
+            </div>
+            <div class="faq-card stagger-6">
+                <h3>Do you have a loyalty program?</h3>
+                <p>Yes! Join our loyalty program to earn points on every purchase. Points can be redeemed for discounts on future orders.</p>
+            </div>
+        </div>
+    </section>
+
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-section">
-                <h3>CSTian BOOKSTORE</h3>
+                <h3>RAKIB BOOKSTORE</h3>
                 <p>Your one-stop destination for quality books</p>
             </div>
 
-
             <div class="footer-section">
-
                 <h3>Quick Links</h3>
-
                 <a href="index.html">Home</a>
-
                 <a href="books.html">Books</a>
-
                 <a href="cart.html">Cart</a>
-
+                <a href="dashboard.html">Dashboard</a>
             </div>
-
 
             <div class="footer-section">
-
-                <h3>Contact</h3>
-
-                <p>support@bookstore.com</p>
-
-                <p>+1 234 567 890</p>
-
+                <h3>Categories</h3>
+                <a href="books.html">Programming</a>
+                <a href="books.html">Science</a>
+                <a href="books.html">Novels</a>
             </div>
 
-
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>support@rakibbookstore.com</p>
+                <p>+1 234 567 890</p>
+            </div>
         </div>
-
 
         <div class="footer-bottom">
-
             <p>&copy; 2024 RAKIB BOOKSTORE. All rights reserved.</p>
-
-            <p>Created with ❤️ by Rakib | Since 2007</p>
-
+            <p>Created by Rakib Ahmed</p>
         </div>
-
-
     </footer>
+
+    <button id="backToTop" class="back-to-top" title="Back to Top">↑</button>
 
 
 
